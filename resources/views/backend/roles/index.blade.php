@@ -24,6 +24,8 @@
                     <div class="card">
                         <div class="card-header">
                             @include('backend.roles.create')
+                           @include('auth.editPassword')
+
                             <div class="row">
                                 <div class="col-sm-12 col-md-10">
                                     <h3 class="card-title">Roles lists</h3>

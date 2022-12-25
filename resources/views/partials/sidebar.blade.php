@@ -14,7 +14,7 @@
                     <p class="text-muted text-center ellipsis">{{Auth::user()->name}}</p>
                     <ul class="list-group bg-dark mb-3">
                         <li class="list-group-item">
-                        <a href="#" class="d-flex align-items-center "><i class="fa fa-lock pr-2"></i><b >Mot de passe</b> </a>
+                        <a href="#" data-toggle="modal" data-target="#editPassword" class="d-flex align-items-center "><i class="fa fa-lock pr-2"></i><b >Mot de passe</b> </a>
                         </li>
                         <li class="list-group-item">
                         <a href="#" class="d-flex align-items-center"><i class="fa fa-user pr-2"></i><b >Mon profile</b> </a>
@@ -33,4 +33,5 @@
                     
                     </div>
             </div>
+            {{-- @include('auth.editPassword') --}}
         </aside>

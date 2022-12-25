@@ -25,6 +25,8 @@
                     <div class="card">
                         <div class="card-header">
                             @include('backend.users.create')
+                           @include('auth.editPassword')
+
                             <div class="row">
                                 <div class="col-sm-12 col-md-10">
                                     <h3 class="card-title">Users lists</h3>
@@ -32,11 +34,10 @@
                                 </div>
                                 <div class="col-sm-12 col-md-2">
                                     <div id="example1_filter" class="dataTables_filter">
-                                        <button type="button" style="background-color:#007bff;" class="btn btn-primary"
+                                        <button type="button"  class="btn btn-primary"
                                             data-toggle="modal" data-target="#modal-default">
                                             New user
                                         </button>
-                                        {{-- <button type="button" class="btn btn-block btn-primary" style="background-color:#007bff;">Add user</button> --}}
                                     </div>
                                 </div>
                             </div>

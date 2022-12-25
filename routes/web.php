@@ -25,8 +25,11 @@ Route::resource('users', UserController::class);
 Route::resource('roles', RoleController::class);
 Route::get('/admin/user', [UserController::class, "index"])->name("users.index");
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+
+Route::post('change-password',  [UserController::class, "editPassword"])->name('change.password');
 
 require __DIR__.'/auth.php';

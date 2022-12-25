@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Rules\MatchOldPassword;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -126,7 +128,20 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back()->with("success", "operation is succed");
 
+    }
 
+    public function editPassword(Request $request)
+    {
+        
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+   
+       User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        return redirect()->back()->with("success", "Password change successfully.");
 
+       
     }
 }
